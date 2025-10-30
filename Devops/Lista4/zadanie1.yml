@@ -1,0 +1,6 @@
+services:
+  myapp:
+    image: hello-world
+    deploy:
+      mode: replicated
+      replicas: 2
