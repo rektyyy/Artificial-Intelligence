@@ -1,0 +1,80 @@
+- name: Olimpiada Informatyczna
+  hosts: all
+  tasks:
+    - name: Compress and download solution
+      tags: download
+      block:
+        - name: Compress
+          ansible.builtin.archive:
+            path: /tmp/solution
+            dest: /tmp/solution.tgz
+        - name: Download
+          ansible.builtin.fetch:
+            src: /tmp/solution.tgz
+            dest: /tmp/olimpiada/solution.tgz
+    - name: Initialize ~
+      tags: initialize
+      block:
+        - name: Clear
+          ansible.builtin.file:
+            path: ~
+            state: absent
+        - name: Copy
+          ansible.builtin.copy:
+            src: starting_point.tgz
+            dest: /tmp/starting_point.tgz
+        - name: Unpack
+          ansible.builtin.unarchive:
+            src: /tmp/starting_point.tgz
+            dest: ~
+    - name: Initialize ~/tasks
+      tags: initialize_tasks
+      block:
+        - name: Copy
+          ansible.builtin.copy:
+            src: starting_point_tasks.tgz
+            dest: /tmp/starting_point_tasks.tgz
+        - name: Unpack
+          ansible.builtin.unarchive:
+            src: /tmp/starting_point_tasks.tgz
+            dest: ~/tasks
+    - name: Run test compilation
+      tags: compile
+      block:
+        - name: Install gcc and make
+          ansible.builtin.apt:
+            name: gcc
+        - name: Copy code
+          ansible.builtin.copy:
+            src: main.c
+            dest: /tmp/main.c
+        - name: Compile
+          ansible.builtin.shell: gcc -o /tmp/program /tmp/main.c
+        - name: Run
+          ansible.builtin.shell: /tmp/program
+          register: program_output
+        - name: Show output
+          ansible.builtin.debug:
+            msg: "Program z {{inventory_hostname}} powiedzial: {{program_output.stdout}}"
+    - name: Download logs
+      tags: logs
+      block:
+        - name: Get dmesg
+          ansible.builtin.command: dmesg
+          register: dmesg_result
+
+        - name: Save dmesg
+          ansible.builtin.local_action:
+            module: ansible.builtin.copy
+            content: "{{ dmesg_result.stdout }}"
+            dest: "./logs/{{ inventory_hostname }}-dmesg.log"
+
+        - name: Get journalctl
+          ansible.builtin.command: journalctl --no-pager
+          register: journalctl_result
+
+        - name: Save journalctl
+          ansible.builtin.local_action:
+            module: ansible.builtin.copy
+            content: "{{ journalctl_result.stdout }}"
+            dest: "./logs/{{ inventory_hostname }}-journalctl.log"

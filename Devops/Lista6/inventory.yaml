@@ -1,0 +1,19 @@
+all:
+  hosts:
+    docker1:
+      ansible_host: 172.19.0.2
+      ansible_user: root
+      ansible_ssh_pass: root
+    docker2:
+      ansible_host: 172.19.0.3
+      ansible_user: root
+      ansible_ssh_pass: root
+    docker3:
+      ansible_host: 172.19.0.4
+      ansible_user: root
+      ansible_ssh_pass: root
+    docker4:
+      ansible_host: 172.19.0.5
+      ansible_user: root
+      ansible_ssh_pass: root
+
