@@ -1,0 +1,32 @@
+services:
+  ubuntu1:
+    build:
+      context: .
+      dockerfile: ubuntu-ansible.Dockerfile
+    ports:
+      - "2221:22"
+    container_name: docker-1
+
+  ubuntu2:
+    build:
+      context: .
+      dockerfile: ubuntu-ansible.Dockerfile
+    ports:
+      - "2222:22"
+    container_name: docker-2
+
+  ubuntu3:
+    build:
+      context: .
+      dockerfile: ubuntu-ansible.Dockerfile
+    ports:
+      - "2223:22"
+    container_name: docker-3
+
+  ubuntu4:
+    build:
+      context: .
+      dockerfile: ubuntu-ansible.Dockerfile
+    ports:
+      - "2224:22"
+    container_name: docker-4

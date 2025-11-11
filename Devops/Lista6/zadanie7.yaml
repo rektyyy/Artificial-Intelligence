@@ -1,0 +1,12 @@
+- name: Test eskalacji uprawnień
+  hosts: docker1
+  become: true
+
+  tasks:
+    - name: Sprawdź, kim jestem po 'become'
+      ansible.builtin.command: whoami
+      register: whoami_result
+
+    - name: Pokaż wynik
+      ansible.builtin.debug:
+        msg: "'whoami' returns: {{ whoami_result.stdout }}"
