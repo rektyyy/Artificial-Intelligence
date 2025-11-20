@@ -1,0 +1,36 @@
+- name: zadanie 3
+  hosts: one
+
+  vars:
+    target_file: "/tmp/zeros_test.img"
+    target_url: "https://www.wikipedia.org"
+    download_dest: "/tmp/wiki_index.html"
+
+  tasks:
+
+    - name: nadpisuj
+      ansible.builtin.command: "dd if=/dev/zero of={{ target_file }} bs=10M count=200"
+      async: 60
+      poll: 0
+      register: dd_job
+
+
+    - name: pobierz
+      ansible.builtin.get_url:
+        url: "{{ target_url }}"
+        dest: "{{ download_dest }}"
+      async: 45
+      poll: 0
+      register: web_job
+
+
+    - name: czekaj na zakonczenie
+      ansible.builtin.async_status:
+        jid: "{{ item.ansible_job_id }}"
+      register: job_result
+      until: job_result.finished
+      retries: 60
+      delay: 1
+      loop:
+        - "{{ dd_job }}"
+        - "{{ web_job }}"

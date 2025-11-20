@@ -1,0 +1,5 @@
+- hosts: one
+  become: true
+  roles:
+    - role: nginx
+      welcome_message: "hejka tu lenka!"
