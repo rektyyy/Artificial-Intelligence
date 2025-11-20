@@ -2,10 +2,12 @@
   hosts: all
   tasks:
     - name: Compress and download solution
-      tags: download
+      tags:
+        - all
+        - download
       block:
         - name: Compress
-          ansible.builtin.archive:
+          archive:
             path: /tmp/solution
             dest: /tmp/solution.tgz
         - name: Download
@@ -13,7 +15,9 @@
             src: /tmp/solution.tgz
             dest: /tmp/olimpiada/solution.tgz
     - name: Initialize ~
-      tags: initialize
+      tags:
+        - all
+        - initialize
       block:
         - name: Clear
           ansible.builtin.file:
@@ -28,7 +32,9 @@
             src: /tmp/starting_point.tgz
             dest: ~
     - name: Initialize ~/tasks
-      tags: initialize_tasks
+      tags:
+        - all
+        - initialize_tasks
       block:
         - name: Copy
           ansible.builtin.copy:
@@ -39,7 +45,7 @@
             src: /tmp/starting_point_tasks.tgz
             dest: ~/tasks
     - name: Run test compilation
-      tags: compile
+      tags: all, compile
       block:
         - name: Install gcc and make
           ansible.builtin.apt:
@@ -57,14 +63,16 @@
           ansible.builtin.debug:
             msg: "Program z {{inventory_hostname}} powiedzial: {{program_output.stdout}}"
     - name: Download logs
-      tags: logs
+      tags:
+        - all
+        - logs
       block:
         - name: Get dmesg
           ansible.builtin.command: dmesg
           register: dmesg_result
 
         - name: Save dmesg
-          ansible.builtin.local_action:
+          local_action:
             module: ansible.builtin.copy
             content: "{{ dmesg_result.stdout }}"
             dest: "./logs/{{ inventory_hostname }}-dmesg.log"
@@ -74,7 +82,7 @@
           register: journalctl_result
 
         - name: Save journalctl
-          ansible.builtin.local_action:
+          local_action:
             module: ansible.builtin.copy
             content: "{{ journalctl_result.stdout }}"
             dest: "./logs/{{ inventory_hostname }}-journalctl.log"

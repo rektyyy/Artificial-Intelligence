@@ -1,0 +1,5 @@
+- name: create folder
+  file:
+    path: /home/michal/PycharmProjects/Artificial-Intelligence/Devops/Lista7/{{ foldername }}
+    state: directory
+    mode: '0775'
