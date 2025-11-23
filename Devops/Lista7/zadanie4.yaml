@@ -1,5 +1,4 @@
-- hosts: one
-  become: true
+- hosts: localhost
   roles:
-    - role: nginx
-      welcome_message: "hejka tu lenka!"
+    - role: folder
+      #foldername: "fajny_folder"

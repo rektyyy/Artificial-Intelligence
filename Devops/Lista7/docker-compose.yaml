@@ -6,7 +6,7 @@ services:
     ports:
       - "2221:22"
       - "8081:80"
-    container_name: docker-1
+    container_name: docker-11
 
   ubuntu2:
     build:
@@ -14,20 +14,4 @@ services:
       dockerfile: ubuntu-ansible-root.Dockerfile
     ports:
       - "2222:22"
-    container_name: docker-2
-
-  ubuntu3:
-    build:
-      context: .
-      dockerfile: ubuntu-ansible-root.Dockerfile
-    ports:
-      - "2223:22"
-    container_name: docker-3
-
-  ubuntu4:
-    build:
-      context: .
-      dockerfile: ubuntu-ansible-root.Dockerfile
-    ports:
-      - "2224:22"
-    container_name: docker-4
+    container_name: docker-21
