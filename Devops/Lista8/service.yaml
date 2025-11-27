@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ack-app-service
+spec:
+  type: LoadBalancer # Wystawia usługę na zewnątrz
+  selector:
+    app: ack-app     # Łączy Service z Podami o tej etykiecie
+  ports:
+    - protocol: TCP
+      port: 80       # Port dostępny z zewnątrz
+      targetPort: 8000 # Port aplikacji w kontenerze

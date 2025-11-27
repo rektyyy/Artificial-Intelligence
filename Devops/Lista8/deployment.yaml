@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ack-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ack-app
+  template:
+    metadata:
+      labels:
+        app: ack-app
+    spec:
+      containers:
+      - name: ack-app
+        image: k8sapp
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
