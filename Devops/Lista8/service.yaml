@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: ack-app-service
 spec:
-  type: LoadBalancer # Wystawia usługę na zewnątrz
+  type: LoadBalancer
   selector:
-    app: ack-app     # Łączy Service z Podami o tej etykiecie
+    app: ack-app     # loadbalancer na aplikacji z taka etykieta
   ports:
     - protocol: TCP
-      port: 80       # Port dostępny z zewnątrz
-      targetPort: 8000 # Port aplikacji w kontenerze
+      port: 80
+      targetPort: 8000

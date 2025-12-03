@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ack-app
-        image: k8sapp
+        image: lista7zad2:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
