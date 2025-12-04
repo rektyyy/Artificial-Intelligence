@@ -1,0 +1,17 @@
+kind: Job
+metadata:
+  name: image-processing
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: processor
+        image: image-processor:latest
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        hostPath:
+          path: /strony
