@@ -30,4 +30,4 @@ function process(){
 export -f process
 
 #parallel -j 12 process {} ::: *.JPG
-parallel -j 12 process {} ::: IMG_0460.JPG
+parallel -j 12 process {} ::: strony/IMG_0460.JPG
