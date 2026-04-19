@@ -1,0 +1,1 @@
+# This repository contains all my work from Artificial Inteligence degree at University of Wroclaw
