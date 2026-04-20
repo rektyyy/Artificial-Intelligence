@@ -36,5 +36,5 @@ Semester2/AdvancedDataMining/3/runs/tmodel/events.out.tfevents.1774306111.mrbeas
 Semester2/AdvancedDataMining/3/tokenizer_en.json
 Semester2/AdvancedDataMining/3/tokenizer_it.json
 Semester2/NeuralNetworks/3/dataset/*
-Semester2/NeuralNetworks/4/data/*
+Semester2/NeuralNetworks/*/data/*
 Semester2/AdvancedDataMining/5/data/*
