@@ -38,3 +38,4 @@ Semester2/AdvancedDataMining/3/tokenizer_it.json
 Semester2/NeuralNetworks/3/dataset/*
 Semester2/NeuralNetworks/*/data/*
 Semester2/AdvancedDataMining/5/data/*
+wandb/
