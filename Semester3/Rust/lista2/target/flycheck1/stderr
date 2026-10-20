@@ -1,7 +1,0 @@
-    Checking lista2 v0.1.0 (/Users/michal/Desktop/Artificial-Intelligence/Semester3/Rust/lista2)
-error: could not compile `lista2` (bin "2") due to 1 previous error
-warning: build failed, waiting for other jobs to finish...
-error: could not compile `lista2` (bin "5") due to 1 previous error
-error: could not compile `lista2` (bin "1") due to 1 previous error
-error: could not compile `lista2` (bin "4") due to 1 previous error
-error: could not compile `lista2` (bin "3") due to 1 previous error
