@@ -1,13 +1,4 @@
-.idea/Artificial-Inteligence.iml
-.idea/copilot.data.migration.agent.xml
-.idea/copilot.data.migration.ask2agent.xml
-.idea/copilot.data.migration.ask.xml
-.idea/copilot.data.migration.edit.xml
-.idea/.gitignore
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
+.idea/
 Semester1/Devops/Lista3/id_ed25519.pub
 Semester1/Devops/Lista4/zadanie3/katalog/smok-baza-danych.bin
 Semester1/Devops/Lista6/group_vars/all/vault.yaml
@@ -38,6 +29,24 @@ Semester2/AdvancedDataMining/3/tokenizer_it.json
 Semester2/NeuralNetworks/3/dataset/*
 Semester2/NeuralNetworks/*/data/*
 Semester2/AdvancedDataMining/5/data/*
+Semester2/AdvancedDataMining/6/
+Semester2/AdvancedDataMining/7/mpi_saale_2021b.csv
+Semester2/AdvancedDataMining/7/mpi_saale_2021b.zip
+Semester2/AdvancedDataMining/8/ECG200/
+Semester2/AdvancedDataMining/8/mpi_saale_2021b.csv
+Semester2/AdvancedDataMining/8/mpi_saale_2021b.zip
+Semester2/AdvancedDataMining/9/
+Semester2/AdvancedDataMining/__pycache__/
+Semester2/AdvancedDataMining/anki_tier*.tsv
+Semester2/AdvancedDataMining/gen_anki_final.py
+Semester2/AdvancedDataMining/generate_anki*.py
+Semester2/AdvancedDataMining/presentations/
+Semester2/AdvancedDataMining/tier*_exam_questions.md
+Semester2/NeuralNetworks/7/yolo11n.pt
+Semester2/NeuralNetworks/anki/
+Semester2/NeuralNetworks/answers.md
+Semester2/NeuralNetworks/exam_prep_tier*.md
+Semester2/NeuralNetworks/questions.md
 wandb/
 
 # Rust
