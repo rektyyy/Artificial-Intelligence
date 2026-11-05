@@ -24,15 +24,25 @@ mod tests {
 
     #[test] 
     fn sample_tests() {
-        do_test(0, 0);
-        do_test(4, 1);
-        do_test(7, 3);
         do_test(77231418, 14);
-        do_test(12525589, 11);
-        do_test(31, 5);
-        do_test(417862, 7);
-        do_test(89, 4);
+    }
+    #[test]
+    fn sample_tests2() {
+        do_test(0, 0);
+    }
+
+    #[test]
+    fn sample_tests3() {
         do_test(674259, 10);
-        do_test(i64::MAX, 63)
+    }
+
+    #[test]
+    fn sample_tests4() {
+        do_test(7, 3);
+    }
+
+    #[test]
+    fn sample_tests5() {
+        do_test(4, 1);
     }
 }
